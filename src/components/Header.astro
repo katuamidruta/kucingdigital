@@ -22,7 +22,7 @@ function isActive(href: string) {
     <nav>
       {links.map(link => (
         <a href={link.href} class={isActive(link.href) ? 'active' : undefined}>
-          {link.label}
+          [ {link.label} ]
         </a>
       ))}
     </nav>
@@ -84,7 +84,7 @@ function isActive(href: string) {
 
   nav a {
     font-family: var(--font-mono);
-    font-size: 0.95rem;
+    font-size: 1.25rem;
     color: var(--muted);
     text-decoration: none;
     letter-spacing: 0.02em;

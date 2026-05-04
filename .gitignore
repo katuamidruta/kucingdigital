@@ -1,10 +1,17 @@
 # build output
 dist/
-# generated types
+
+# cache
 .astro/
+.vite/
 
 # dependencies
 node_modules/
+
+# env
+.env
+.env.*
+!.env.example
 
 # logs
 npm-debug.log*
@@ -12,13 +19,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
-# environment variables
-.env
-.env.production
-
-# macOS-specific files
+# system
 .DS_Store
+Thumbs.db
 
-# jetbrains setting folder
+# editor
 .idea/
+.vscode/
