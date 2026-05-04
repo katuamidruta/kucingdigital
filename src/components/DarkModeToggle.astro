@@ -2,8 +2,8 @@
 ---
 
 <button id="theme-toggle" aria-label="Toggle dark mode">
-  <span class="icon-light">☾</span>
-  <span class="icon-dark">☀</span>
+  <span class="light">[ light ]</span>
+  <span class="dark">[ dark ]</span>
 </button>
 
 <script>
@@ -21,26 +21,28 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
     color: var(--muted);
     padding: 0;
     line-height: 1;
-    font-family: inherit;
+    letter-spacing: 0.02em;
+    transition: color 0.15s ease;
   }
 
   button:hover {
-    color: var(--text);
+    color: var(--purple);
   }
 
-  .icon-dark {
+  .dark {
     display: none;
   }
 
-  :global(.dark) .icon-light {
+  :global(.dark) .light {
     display: none;
   }
 
-  :global(.dark) .icon-dark {
+  :global(.dark) .dark {
     display: inline;
   }
 </style>

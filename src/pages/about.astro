@@ -5,8 +5,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="About — Oktaviary Log">
   <div class="page">
 
+    <nav class="back-nav">
+      <a href="/">[ home ]</a>
+    </nav>
+
     <header>
-      <p class="back"><a href="/">Oktaviary Log</a></p>
       <h1>About</h1>
     </header>
 
@@ -55,18 +58,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: 2.5rem;
   }
 
-  .back {
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem;
+  .back-nav {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
   }
 
-  .back a {
-    color: #888;
+  .back-nav a {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    color: var(--muted);
     text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.15s ease;
   }
 
-  .back a:hover {
-    color: #1a1a1a;
+  .back-nav a:hover {
+    color: var(--purple);
   }
 
   h1 {

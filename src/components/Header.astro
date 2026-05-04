@@ -16,8 +16,8 @@ function isActive(href: string) {
 <header>
   <div class="inner">
     <a href="/" class="brand" aria-label="Oktaviary Log">
-      <img class="logo-light" src="/logo-light.png" alt="Oktaviary Log" width="128" height="128" />
-      <img class="logo-dark"  src="/logo-dark.png"  alt="Oktaviary Log" width="128" height="128" />
+      <img class="logo-light" src="/logo-light.png" alt="Oktaviary Log" width="75" height="75" />
+      <img class="logo-dark"  src="/logo-dark.png"  alt="Oktaviary Log" width="75" height="75" />
     </a>
     <nav>
       {links.map(link => (
@@ -53,8 +53,8 @@ function isActive(href: string) {
   }
 
   .brand img {
-    width: 128px;
-    height: 128px;
+    width: 75px;
+    height: 75px;
     border-radius: 4px;
     cursor: pointer;
     transition: opacity 0.15s ease, transform 0.15s ease;
@@ -84,7 +84,7 @@ function isActive(href: string) {
 
   nav a {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.95rem;
     color: var(--muted);
     text-decoration: none;
     letter-spacing: 0.02em;
@@ -94,4 +94,5 @@ function isActive(href: string) {
   nav a.active {
     color: var(--purple);
   }
+
 </style>

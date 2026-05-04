@@ -6,9 +6,11 @@ interface Props {
   date: Date;
   type: string;
   logNumber?: number;
+  nextId?: string | null;
+  nextTitle?: string | null;
 }
 
-const { title, date, type, logNumber } = Astro.props;
+const { title, date, type, logNumber, nextId, nextTitle } = Astro.props;
 
 const dateFormatted = date.toLocaleDateString('en-GB', {
   day: 'numeric',
@@ -34,7 +36,11 @@ const logLabel = logNumber !== undefined
     </article>
 
     <footer>
-      <a href="/log">← Log</a>
+      <nav class="back-nav">
+        <a href="/log">[ back ]</a>
+        <a href="/">[ home ]</a>
+        {nextId && <a href={`/log/${nextId}`}>[ next ]</a>}
+      </nav>
     </footer>
   </main>
 </BaseLayout>
@@ -59,10 +65,11 @@ const logLabel = logNumber !== undefined
   }
 
   h1 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    line-height: 1.25;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0;
     margin-bottom: 0.6rem;
   }
 
@@ -82,13 +89,15 @@ const logLabel = logNumber !== undefined
   }
 
   article :global(h2) {
-    font-size: 1.25rem;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
   }
 
   article :global(h3) {
-    font-size: 1.05rem;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
   }
@@ -102,17 +111,27 @@ const logLabel = logNumber !== undefined
   }
 
   article :global(blockquote) {
-    border-left: 2px solid var(--border);
+    border-left: 2px solid var(--purple);
     padding-left: 1.25rem;
-    color: var(--accent);
+    color: var(--muted);
     margin: 2rem 0;
     font-style: italic;
+  }
+
+  article :global(blockquote p) {
+    margin-bottom: 0;
   }
 
   article :global(hr) {
     border: none;
     border-top: 1px solid var(--border);
     margin: 2.5rem 0;
+  }
+
+  article :global(iframe) {
+    margin: 2rem 0;
+    border-radius: 4px;
+    display: block;
   }
 
   article :global(img) {
@@ -131,15 +150,22 @@ const logLabel = logNumber !== undefined
     padding-top: 1.5rem;
   }
 
-  footer a {
+  .back-nav {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .back-nav a {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 1.25rem;
     color: var(--muted);
     text-decoration: none;
     letter-spacing: 0.02em;
+    transition: color 0.15s ease;
   }
 
-  footer a:hover {
-    color: var(--text);
+  .back-nav a:hover {
+    color: var(--purple);
   }
 </style>
