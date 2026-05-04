@@ -9,41 +9,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <a href="/">[ home ]</a>
     </nav>
 
-    <header>
-      <h1>About</h1>
-    </header>
+    <div class="block">
+      <pre class="text">────────────────────────
 
-    <div class="prose">
+<span class="heading">WHERE ARE YOUR FEELINGS?</span>
 
-      <p>The log began as a need to record without explaining.</p>
-      <p>Not to publish. Not to perform.</p>
-      <p>Just to leave a trace.</p>
+locate them.
 
-      <p class="divider">—</p>
+do not analyse.
+locate.
 
-      <p>This is a place for things that don't fully belong anywhere else.</p>
-      <p>Writings. Mixes. Conversations. Fragments.</p>
-      <p>Some of them connect.<br />Most of them don't.</p>
-      <p>That's fine.</p>
+—
 
-      <p class="divider">—</p>
+are they in your chest,
+your stomach,
+your lungs?
 
-      <p>Identity here is left incomplete.</p>
-      <p>What appears is not a person,<br />but a pattern.</p>
-      <p>Something that repeats,<br />changes,<br />contradicts itself,<br />and continues anyway.</p>
+—
 
-      <p class="divider">—</p>
+do not analyse...
 
-      <p>Oktaviary is just a name.</p>
-      <p>The log is the real thing.</p>
+locate.
 
-      <p class="divider">—</p>
-
-      <p>This is not building toward anything.</p>
-      <p>No conclusion. No final version.</p>
-      <p>Just entries.</p>
-      <p>The log continues.</p>
-
+────────────────────────</pre>
     </div>
 
   </div>
@@ -53,15 +41,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .page {
     max-width: 700px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
   }
 
   .back-nav {
-    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
+    margin-bottom: 3rem;
   }
 
   .back-nav a {
@@ -70,33 +55,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--muted);
     text-decoration: none;
     letter-spacing: 0.02em;
-    transition: color 0.15s ease;
+    transition: color 0.2s ease;
   }
 
   .back-nav a:hover {
     color: var(--purple);
   }
 
-  h1 {
-    font-size: 1.5rem;
-    font-weight: normal;
+  .block {
+    padding-left: 2rem;
   }
 
-  .prose {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+  .text {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    line-height: 2;
+    color: var(--muted);
+    white-space: pre;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    max-width: 480px;
+    text-align: left;
+    overflow-x: auto;
   }
 
-  .prose p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #2a2a2a;
+  .heading {
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: 0.06em;
   }
 
-  .divider {
-    color: #ccc;
-    margin: 0.75rem 0;
-    font-style: normal;
+  @media (max-width: 480px) {
+    .block {
+      padding-left: 0;
+    }
+
+    .text {
+      font-size: 0.82rem;
+    }
   }
 </style>

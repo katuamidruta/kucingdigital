@@ -1,0 +1,106 @@
+---
+interface Props {
+  segments: string[];
+  speed?: number;
+  pause?: number;
+  class?: string;
+}
+
+const { segments, speed = 28, pause = 650, class: className } = Astro.props;
+const fullText = segments.join(' ');
+---
+
+<span
+  class:list={['tw', className]}
+  data-segments={JSON.stringify(segments)}
+  data-speed={speed}
+  data-pause={pause}
+  role="text"
+  aria-label={fullText}
+>
+  <span class="tw-reserve" aria-hidden="true">{fullText}</span>
+  <span class="tw-output" aria-hidden="true">
+    <span class="tw-typed"></span><span class="tw-cursor">|</span>
+  </span>
+</span>
+
+<script>
+  const wrap = document.querySelector<HTMLElement>('.tw');
+  if (wrap) {
+    const typed   = wrap.querySelector<HTMLElement>('.tw-typed')!;
+    const cursor  = wrap.querySelector<HTMLElement>('.tw-cursor')!;
+    const output  = wrap.querySelector<HTMLElement>('.tw-output')!;
+
+    const segments: string[] = JSON.parse(wrap.dataset.segments!);
+    const speed  = parseInt(wrap.dataset.speed!);
+    const pause  = parseInt(wrap.dataset.pause!);
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduced) {
+      typed.textContent = segments.join(' ');
+      cursor.style.display = 'none';
+      output.style.position = 'absolute';
+    } else {
+      output.style.position = 'absolute';
+
+      const wait = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
+
+      (async () => {
+        let text = '';
+        for (let i = 0; i < segments.length; i++) {
+          const seg = (i > 0 ? ' ' : '') + segments[i];
+          for (const char of seg) {
+            const jitter = (Math.random() - 0.5) * speed * 0.6;
+            await wait(Math.max(10, speed + jitter));
+            text += char;
+            typed.textContent = text;
+          }
+          if (i < segments.length - 1) {
+            await wait(pause);
+          }
+        }
+        cursor.classList.add('tw-done');
+      })();
+    }
+  }
+</script>
+
+<style>
+  .tw {
+    position: relative;
+    display: block;
+  }
+
+  .tw-reserve {
+    visibility: hidden;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .tw-output {
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .tw-typed {
+    display: inline;
+  }
+
+  .tw-cursor {
+    display: inline;
+    color: var(--muted);
+    animation: tw-blink 0.8s step-end infinite;
+    margin-left: 1px;
+  }
+
+  .tw-cursor.tw-done {
+    display: none;
+  }
+
+  @keyframes tw-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+</style>

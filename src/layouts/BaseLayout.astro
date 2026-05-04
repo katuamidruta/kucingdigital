@@ -73,7 +73,7 @@ const { title = 'Oktaviary Log' } = Astro.props;
   }
 
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   body {
@@ -81,7 +81,8 @@ const { title = 'Oktaviary Log' } = Astro.props;
     line-height: 1.8;
     color: var(--text);
     background-color: var(--bg);
-    padding: 2rem 1rem;
+    padding: 2rem 1.25rem;
+    overflow-x: hidden;
     transition: background-color 0.15s ease, color 0.15s ease;
     -webkit-font-smoothing: antialiased;
   }
@@ -91,6 +92,7 @@ const { title = 'Oktaviary Log' } = Astro.props;
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0;
+    word-break: break-word;
   }
 
   a {
@@ -98,6 +100,7 @@ const { title = 'Oktaviary Log' } = Astro.props;
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-color: var(--border);
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
   }
 
   a:hover {
@@ -115,5 +118,15 @@ const { title = 'Oktaviary Log' } = Astro.props;
     height: auto;
     display: block;
     border-radius: 4px;
+  }
+
+  @media (max-width: 480px) {
+    html {
+      font-size: 14px;
+    }
+
+    body {
+      padding: 1.25rem 1rem;
+    }
   }
 </style>

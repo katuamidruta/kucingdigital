@@ -87,6 +87,7 @@ function formatLogNumber(n: number) {
   li {
     border-top: 1px solid var(--border);
     padding: 1rem 0;
+    transition: border-color 0.2s ease;
   }
 
   li:last-child {
@@ -99,22 +100,38 @@ function formatLogNumber(n: number) {
     align-items: baseline;
     gap: 1rem;
     text-decoration: none;
+    flex-wrap: wrap;
+    transition: color 0.2s ease;
   }
 
-  a:hover .title {
-    text-decoration: underline;
-    text-underline-offset: 3px;
+  a:hover {
+    color: var(--purple);
+  }
+
+  a:hover .meta {
+    color: var(--purple);
+    opacity: 0.6;
   }
 
   .title {
     color: var(--text);
+    transition: color 0.2s ease;
+  }
+
+  a:hover .title {
+    color: var(--purple);
   }
 
   .lognumber {
     font-family: var(--font-mono);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: var(--text);
+    color: var(--muted);
+    transition: color 0.2s ease;
+  }
+
+  a:hover .lognumber {
+    color: var(--purple);
   }
 
   .meta {
@@ -122,5 +139,6 @@ function formatLogNumber(n: number) {
     color: var(--muted);
     white-space: nowrap;
     flex-shrink: 0;
+    transition: color 0.2s ease, opacity 0.2s ease;
   }
 </style>

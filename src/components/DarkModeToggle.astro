@@ -25,13 +25,22 @@
     font-size: 1.25rem;
     color: var(--muted);
     padding: 0;
-    line-height: 1;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
     letter-spacing: 0.02em;
     transition: color 0.15s ease;
+    flex-shrink: 0;
   }
 
   button:hover {
     color: var(--purple);
+  }
+
+  @media (max-width: 480px) {
+    button {
+      font-size: 0.85rem;
+    }
   }
 
   .dark {

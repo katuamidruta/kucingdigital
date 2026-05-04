@@ -140,9 +140,11 @@ const logLabel = logNumber !== undefined
     transition: transform 0.2s ease, filter 0.2s ease;
   }
 
-  article :global(img:hover) {
-    transform: scale(1.02);
-    filter: brightness(1.04);
+  @media (hover: hover) {
+    article :global(img:hover) {
+      transform: scale(1.02);
+      filter: brightness(1.04);
+    }
   }
 
   footer {
@@ -154,6 +156,7 @@ const logLabel = logNumber !== undefined
     display: flex;
     justify-content: center;
     gap: 3rem;
+    flex-wrap: wrap;
   }
 
   .back-nav a {
@@ -162,10 +165,27 @@ const logLabel = logNumber !== undefined
     color: var(--muted);
     text-decoration: none;
     letter-spacing: 0.02em;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
     transition: color 0.15s ease;
   }
 
   .back-nav a:hover {
     color: var(--purple);
+  }
+
+  @media (max-width: 480px) {
+    .back-nav {
+      gap: 1.5rem;
+    }
+
+    .back-nav a {
+      font-size: 1rem;
+    }
+
+    h1 {
+      font-size: 0.85rem;
+    }
   }
 </style>
