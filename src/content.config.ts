@@ -1,13 +1,14 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const logs = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/logs' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
     description: z.string(),
     type: z.enum(['writing', 'mix', 'review', 'conversation', 'experiment']),
-    logNumber: z.number().int().positive().optional(),
+    logNumber: z.number().optional(),
     draft: z.boolean().optional(),
   }),
 });

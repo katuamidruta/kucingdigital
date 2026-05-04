@@ -53,7 +53,7 @@ function shortDate(date: Date) {
                   Log {String(entry.data.logNumber).padStart(3, '0')}
                 </span>
               )}
-              <a href={`/log/${entry.slug}`}>{entry.data.title}</a>
+              <a href={`/log/${entry.id}`}>{entry.data.title}</a>
               <p class="description">{entry.data.description}</p>
             </div>
             <span class="date">{shortDate(entry.data.date)}</span>

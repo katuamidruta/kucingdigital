@@ -28,7 +28,7 @@ function shortDate(date: Date) {
       <ul class="log-list">
         {latest.map((entry) => (
           <li>
-            <a href={`/log/${entry.slug}`}>{entry.data.title}</a>
+            <a href={`/log/${entry.id}`}>{entry.data.title}</a>
             <span class="row-meta">{entry.data.type} · {shortDate(entry.data.date)}</span>
           </li>
         ))}
@@ -40,7 +40,7 @@ function shortDate(date: Date) {
       {writing && (
         <section class="highlight">
           <h2>Writing</h2>
-          <a class="highlight-title" href={`/log/${writing.slug}`}>{writing.data.title}</a>
+          <a class="highlight-title" href={`/log/${writing.id}`}>{writing.data.title}</a>
           <p class="highlight-desc">{writing.data.description}</p>
           <p class="row-meta">{shortDate(writing.data.date)}</p>
         </section>
@@ -49,7 +49,7 @@ function shortDate(date: Date) {
       {mix && (
         <section class="highlight">
           <h2>Mix</h2>
-          <a class="highlight-title" href={`/log/${mix.slug}`}>{mix.data.title}</a>
+          <a class="highlight-title" href={`/log/${mix.id}`}>{mix.data.title}</a>
           <p class="highlight-desc">{mix.data.description}</p>
           <p class="row-meta">{shortDate(mix.data.date)}</p>
         </section>
@@ -62,7 +62,7 @@ function shortDate(date: Date) {
         <ul class="log-list">
           {conversations.map((entry) => (
             <li>
-              <a href={`/log/${entry.slug}`}>{entry.data.title}</a>
+              <a href={`/log/${entry.id}`}>{entry.data.title}</a>
               <span class="row-meta">{shortDate(entry.data.date)}</span>
             </li>
           ))}
@@ -90,7 +90,7 @@ function shortDate(date: Date) {
 
   .tagline {
     font-size: 0.9rem;
-    color: #888;
+    color: var(--muted);
   }
 
   h2 {
@@ -98,7 +98,7 @@ function shortDate(date: Date) {
     font-weight: normal;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #aaa;
+    color: var(--muted);
     margin-bottom: 1rem;
   }
 
@@ -127,7 +127,7 @@ function shortDate(date: Date) {
 
   .row-meta {
     font-size: 0.8rem;
-    color: #aaa;
+    color: var(--muted);
     white-space: nowrap;
     flex-shrink: 0;
   }
@@ -136,12 +136,12 @@ function shortDate(date: Date) {
     display: inline-block;
     margin-top: 1rem;
     font-size: 0.85rem;
-    color: #888;
+    color: var(--muted);
     text-decoration: none;
   }
 
   .view-all:hover {
-    color: #1a1a1a;
+    color: var(--text);
   }
 
   .highlights {
@@ -165,7 +165,7 @@ function shortDate(date: Date) {
 
   .highlight-desc {
     font-size: 0.9rem;
-    color: #555;
+    color: var(--accent);
     margin-bottom: 0.4rem;
   }
 

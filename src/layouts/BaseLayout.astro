@@ -1,4 +1,7 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
   title?: string;
 }
@@ -6,18 +9,56 @@ interface Props {
 const { title = 'Oktaviary Log' } = Astro.props;
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
   <body>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 
 <style is:global>
+  :root {
+    --bg:     #f9f8f5;
+    --text:   #1a1a1a;
+    --muted:  #888888;
+    --border: #e0ddd8;
+    --accent: #555555;
+    --purple: #5170ff;
+    --font-serif: 'Lora', Georgia, serif;
+    --font-mono:  'IBM Plex Mono', 'Courier New', monospace;
+  }
+
+  :root.dark {
+    --bg:     #1c1c1e;
+    --text:   #e8e6e1;
+    --muted:  #787878;
+    --border: #2e2e30;
+    --accent: #9e9e9e;
+    --purple: #7a8fff;
+  }
+
   *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -29,20 +70,43 @@ const { title = 'Oktaviary Log' } = Astro.props;
   }
 
   body {
-    font-family: Georgia, 'Times New Roman', serif;
-    line-height: 1.7;
-    color: #1a1a1a;
-    background: #fafafa;
+    font-family: var(--font-serif);
+    line-height: 1.8;
+    color: var(--text);
+    background-color: var(--bg);
     padding: 2rem 1rem;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
   }
 
   a {
     color: inherit;
     text-decoration: underline;
     text-underline-offset: 3px;
+    text-decoration-color: var(--border);
   }
 
   a:hover {
-    color: #555;
+    color: var(--purple);
+    text-decoration-color: var(--purple);
+  }
+
+  code, pre, kbd {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
   }
 </style>

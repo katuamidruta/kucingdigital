@@ -1,0 +1,97 @@
+---
+import DarkModeToggle from './DarkModeToggle.astro';
+
+const links = [
+  { href: '/log',   label: 'Log' },
+  { href: '/about', label: 'About' },
+];
+
+const { pathname } = Astro.url;
+
+function isActive(href: string) {
+  return pathname === href || pathname.startsWith(href + '/');
+}
+---
+
+<header>
+  <div class="inner">
+    <a href="/" class="brand" aria-label="Oktaviary Log">
+      <img class="logo-light" src="/logo-light.png" alt="Oktaviary Log" width="128" height="128" />
+      <img class="logo-dark"  src="/logo-dark.png"  alt="Oktaviary Log" width="128" height="128" />
+    </a>
+    <nav>
+      {links.map(link => (
+        <a href={link.href} class={isActive(link.href) ? 'active' : undefined}>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <DarkModeToggle />
+  </div>
+</header>
+
+<style>
+  header {
+    padding-bottom: 1.25rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .inner {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .brand {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .brand img {
+    width: 128px;
+    height: 128px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .logo-dark {
+    display: none;
+  }
+
+  :global(.dark) .logo-light {
+    display: none;
+  }
+
+  :global(.dark) .logo-dark {
+    display: block;
+  }
+
+  .brand:hover img {
+    opacity: 0.75;
+    transform: scale(0.96);
+  }
+
+  nav {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  nav a {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  nav a:hover,
+  nav a.active {
+    color: var(--purple);
+  }
+</style>

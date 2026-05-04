@@ -1,7 +1,4 @@
-backend:
-  name: github
-  repo: your-username/your-repo
-  branch: main
+local_backend: true
 
 media_folder: public/images
 public_folder: /images

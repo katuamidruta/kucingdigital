@@ -27,7 +27,7 @@ function formatLogNumber(n: number) {
     <ul>
       {logs.map((entry) => (
         <li>
-          <a href={`/log/${entry.slug}`}>
+          <a href={`/log/${entry.id}`}>
             <span class="title">
               {entry.data.logNumber && (
                 <span class="lognumber">{formatLogNumber(entry.data.logNumber)} — </span>
@@ -62,12 +62,12 @@ function formatLogNumber(n: number) {
   }
 
   li {
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid var(--border);
     padding: 1rem 0;
   }
 
   li:last-child {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid var(--border);
   }
 
   a {
@@ -84,18 +84,18 @@ function formatLogNumber(n: number) {
   }
 
   .title {
-    color: #1a1a1a;
+    color: var(--text);
   }
 
   .lognumber {
     font-family: monospace;
     font-size: 0.8rem;
-    color: #888;
+    color: var(--muted);
   }
 
   .meta {
     font-size: 0.8rem;
-    color: #aaa;
+    color: var(--muted);
     white-space: nowrap;
     flex-shrink: 0;
   }
