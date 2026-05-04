@@ -1,0 +1,182 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const allLogs = (await getCollection('logs', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const latest      = allLogs.slice(0, 6);
+const writing     = allLogs.find((e) => e.data.type === 'writing');
+const mix         = allLogs.find((e) => e.data.type === 'mix');
+const conversations = allLogs.filter((e) => e.data.type === 'conversation').slice(0, 3);
+
+function shortDate(date: Date) {
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+---
+
+<BaseLayout>
+  <div class="page">
+
+    <header class="site-header">
+      <h1>Oktaviary Log</h1>
+      <p class="tagline">Writings, mixes, reviews, conversations, experiments.</p>
+    </header>
+
+    <section>
+      <h2>Latest</h2>
+      <ul class="log-list">
+        {latest.map((entry) => (
+          <li>
+            <a href={`/log/${entry.slug}`}>{entry.data.title}</a>
+            <span class="row-meta">{entry.data.type} · {shortDate(entry.data.date)}</span>
+          </li>
+        ))}
+      </ul>
+      <a class="view-all" href="/log">All entries →</a>
+    </section>
+
+    <div class="highlights">
+      {writing && (
+        <section class="highlight">
+          <h2>Writing</h2>
+          <a class="highlight-title" href={`/log/${writing.slug}`}>{writing.data.title}</a>
+          <p class="highlight-desc">{writing.data.description}</p>
+          <p class="row-meta">{shortDate(writing.data.date)}</p>
+        </section>
+      )}
+
+      {mix && (
+        <section class="highlight">
+          <h2>Mix</h2>
+          <a class="highlight-title" href={`/log/${mix.slug}`}>{mix.data.title}</a>
+          <p class="highlight-desc">{mix.data.description}</p>
+          <p class="row-meta">{shortDate(mix.data.date)}</p>
+        </section>
+      )}
+    </div>
+
+    {conversations.length > 0 && (
+      <section>
+        <h2>Conversations</h2>
+        <ul class="log-list">
+          {conversations.map((entry) => (
+            <li>
+              <a href={`/log/${entry.slug}`}>{entry.data.title}</a>
+              <span class="row-meta">{shortDate(entry.data.date)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .site-header h1 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 0.25rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+    color: #888;
+  }
+
+  h2 {
+    font-size: 0.75rem;
+    font-weight: normal;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 1rem;
+  }
+
+  .log-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .log-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .log-list a {
+    text-decoration: none;
+  }
+
+  .log-list a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .row-meta {
+    font-size: 0.8rem;
+    color: #aaa;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .view-all {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #888;
+    text-decoration: none;
+  }
+
+  .view-all:hover {
+    color: #1a1a1a;
+  }
+
+  .highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .highlight-title {
+    display: block;
+    font-size: 1.1rem;
+    text-decoration: none;
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+
+  .highlight-title:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .highlight-desc {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.4rem;
+  }
+
+  @media (max-width: 500px) {
+    .highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .log-list li {
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+  }
+</style>

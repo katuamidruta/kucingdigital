@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import LogLayout from '../../layouts/LogLayout.astro';
+
+export async function getStaticPaths() {
+  const logs = await getCollection('logs', ({ data }) => !data.draft);
+  return logs.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<LogLayout
+  title={entry.data.title}
+  date={entry.data.date}
+  type={entry.data.type}
+  logNumber={entry.data.logNumber}
+>
+  <Content />
+</LogLayout>

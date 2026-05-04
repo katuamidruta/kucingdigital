@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+
+const logs = (await getCollection('logs', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatLogNumber(n: number) {
+  return `Log ${String(n).padStart(3, '0')}`;
+}
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Oktaviary Log</title>
+  </head>
+  <body>
+    <h1>Log</h1>
+    <ul>
+      {logs.map((entry) => (
+        <li>
+          <a href={`/log/${entry.slug}`}>
+            {entry.data.logNumber && <span>{formatLogNumber(entry.data.logNumber)} — </span>}
+            {entry.data.title}
+          </a>
+          <span>{entry.data.type}</span>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About — Oktaviary Log">
+  <div class="page">
+
+    <header>
+      <p class="back"><a href="/">Oktaviary Log</a></p>
+      <h1>About</h1>
+    </header>
+
+    <div class="prose">
+
+      <p>The log began as a need to record without explaining.</p>
+      <p>Not to publish. Not to perform.</p>
+      <p>Just to leave a trace.</p>
+
+      <p class="divider">—</p>
+
+      <p>This is a place for things that don't fully belong anywhere else.</p>
+      <p>Writings. Mixes. Conversations. Fragments.</p>
+      <p>Some of them connect.<br />Most of them don't.</p>
+      <p>That's fine.</p>
+
+      <p class="divider">—</p>
+
+      <p>Identity here is left incomplete.</p>
+      <p>What appears is not a person,<br />but a pattern.</p>
+      <p>Something that repeats,<br />changes,<br />contradicts itself,<br />and continues anyway.</p>
+
+      <p class="divider">—</p>
+
+      <p>Oktaviary is just a name.</p>
+      <p>The log is the real thing.</p>
+
+      <p class="divider">—</p>
+
+      <p>This is not building toward anything.</p>
+      <p>No conclusion. No final version.</p>
+      <p>Just entries.</p>
+      <p>The log continues.</p>
+
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .back {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .back a {
+    color: #888;
+    text-decoration: none;
+  }
+
+  .back a:hover {
+    color: #1a1a1a;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+
+  .prose {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .prose p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #2a2a2a;
+  }
+
+  .divider {
+    color: #ccc;
+    margin: 0.75rem 0;
+    font-style: normal;
+  }
+</style>

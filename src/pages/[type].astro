@@ -1,0 +1,155 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const typeMap: Record<string, string> = {
+  writings:      'writing',
+  mixes:         'mix',
+  reviews:       'review',
+  conversations: 'conversation',
+  experiments:   'experiment',
+};
+
+export async function getStaticPaths() {
+  return Object.keys({
+    writings: true,
+    mixes: true,
+    reviews: true,
+    conversations: true,
+    experiments: true,
+  }).map((type) => ({ params: { type } }));
+}
+
+const { type } = Astro.params;
+const typeValue = typeMap[type];
+
+const entries = (await getCollection('logs', ({ data }) =>
+  !data.draft && data.type === typeValue
+)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const label = type.charAt(0).toUpperCase() + type.slice(1);
+
+function shortDate(date: Date) {
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+---
+
+<BaseLayout title={`${label} — Oktaviary Log`}>
+  <div class="page">
+    <header>
+      <p class="back"><a href="/">Oktaviary Log</a></p>
+      <h1>{label}</h1>
+    </header>
+
+    {entries.length === 0 ? (
+      <p class="empty">Nothing here yet.</p>
+    ) : (
+      <ul class="log-list">
+        {entries.map((entry) => (
+          <li>
+            <div class="entry-main">
+              {entry.data.logNumber && (
+                <span class="lognumber">
+                  Log {String(entry.data.logNumber).padStart(3, '0')}
+                </span>
+              )}
+              <a href={`/log/${entry.slug}`}>{entry.data.title}</a>
+              <p class="description">{entry.data.description}</p>
+            </div>
+            <span class="date">{shortDate(entry.data.date)}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .back {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .back a {
+    color: #888;
+    text-decoration: none;
+  }
+
+  .back a:hover {
+    color: #1a1a1a;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+
+  .log-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .log-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .log-list li:last-child {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .entry-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .lognumber {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #aaa;
+    letter-spacing: 0.05em;
+  }
+
+  .log-list a {
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  .log-list a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .description {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.1rem;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    color: #aaa;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-top: 0.15rem;
+  }
+
+  .empty {
+    color: #888;
+    font-size: 0.9rem;
+  }
+</style>
