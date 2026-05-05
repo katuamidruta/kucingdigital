@@ -6,16 +6,20 @@ export async function getStaticPaths() {
   const logs = (await getCollection('logs', ({ data }) => !data.draft))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-  return logs.map((entry, i) => ({
-    params: { slug: entry.id },
-    props: {
-      entry,
-      next: logs[i + 1] ?? null,
-    },
-  }));
+  return logs.map((entry, i) => {
+    const next = logs[i + 1] ?? null;
+    return {
+      params: { slug: entry.id },
+      props: {
+        entry,
+        nextId: next?.id ?? null,
+        nextTitle: next?.data.title ?? null,
+      },
+    };
+  });
 }
 
-const { entry, next } = Astro.props;
+const { entry, nextId, nextTitle } = Astro.props;
 const { Content } = await render(entry);
 ---
 
@@ -24,8 +28,8 @@ const { Content } = await render(entry);
   date={entry.data.date}
   type={entry.data.type}
   logNumber={entry.data.logNumber}
-  nextId={next?.id ?? null}
-  nextTitle={next?.data.title ?? null}
+  nextId={nextId}
+  nextTitle={nextTitle}
 >
   <Content />
 </LogLayout>

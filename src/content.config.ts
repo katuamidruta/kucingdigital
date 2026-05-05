@@ -7,7 +7,7 @@ const logs = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     description: z.string(),
-    type: z.enum(['writing', 'mix', 'review', 'conversation', 'experiment']),
+    type: z.string(),
     logNumber: z.number().optional(),
     draft: z.boolean().optional(),
   }),

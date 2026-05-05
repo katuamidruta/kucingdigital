@@ -1,14 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Typewriter from '../components/Typewriter.astro';
+import { getCollection } from 'astro:content';
 
 const allLogs = (await getCollection('logs', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-const latest      = allLogs.slice(0, 6);
-const writing     = allLogs.find((e) => e.data.type === 'writing');
-const mix         = allLogs.find((e) => e.data.type === 'mix');
+const latest        = allLogs.slice(0, 6);
+const writing       = allLogs.find((e) => e.data.type === 'writing');
+const mix           = allLogs.find((e) => e.data.type === 'mix');
 const conversations = allLogs.filter((e) => e.data.type === 'conversation').slice(0, 3);
 
 function shortDate(date: Date) {
@@ -36,8 +36,10 @@ function shortDate(date: Date) {
       <ul class="log-list">
         {latest.map((entry) => (
           <li>
-            <a href={`/log/${entry.id}`}>{entry.data.title}</a>
-            <span class="row-meta">{entry.data.type} · {shortDate(entry.data.date)}</span>
+            <a href={`/log/${entry.id}`}>
+              {entry.data.title}
+              <span class="row-meta">{entry.data.type} · {shortDate(entry.data.date)}</span>
+            </a>
           </li>
         ))}
       </ul>
@@ -70,8 +72,10 @@ function shortDate(date: Date) {
         <ul class="log-list">
           {conversations.map((entry) => (
             <li>
-              <a href={`/log/${entry.id}`}>{entry.data.title}</a>
-              <span class="row-meta">{shortDate(entry.data.date)}</span>
+              <a href={`/log/${entry.id}`}>
+                {entry.data.title}
+                <span class="row-meta">{shortDate(entry.data.date)}</span>
+              </a>
             </li>
           ))}
         </ul>

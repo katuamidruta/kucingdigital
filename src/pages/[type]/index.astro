@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const typeMap: Record<string, string> = {
   writings:      'writing',
@@ -21,6 +21,11 @@ export async function getStaticPaths() {
 }
 
 const { type } = Astro.params;
+
+if (type === "admin") {
+  return Astro.redirect("/admin/index.html");
+}
+
 const typeValue = typeMap[type];
 
 const entries = (await getCollection('logs', ({ data }) =>
