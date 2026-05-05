@@ -1,34 +1,54 @@
 media:
-  input: public/images
-  output: /images
+input: public/images
+output: /images
 
 content:
-  - name: logs
-    label: Logs
-    path: src/content/logs
-    type: collection
-    fields:
-      - name: title
-        label: Title
-        type: string
-        required: true
-      - name: date
-        label: Date
-        type: date
-        required: true
-      - name: description
-        label: Description
-        type: text
-      - name: type
-        label: Type
-        type: string
-      - name: draft
-        label: Draft
-        type: boolean
-        default: false
-      - name: slug
-        label: Slug
-        type: string
-      - name: body
-        label: Body
-        type: rich-text
+
+* name: logs
+  label: Logs
+  path: src/content/logs
+  type: collection
+
+  filename: "{slug}.md"
+
+  fields:
+
+  * name: title
+    label: Title
+    type: string
+    required: true
+
+  * name: slug
+    label: Slug
+    type: string
+    required: true
+    description: "url-friendly (example: late-may-mix)"
+
+  * name: date
+    label: Date
+    type: date
+    required: true
+
+  * name: description
+    label: Description
+    type: text
+
+  * name: type
+    label: Type
+    type: select
+    options:
+
+    * writing
+    * mix
+    * review
+    * conversation
+    * experiment
+
+  * name: draft
+    label: Draft
+    type: boolean
+    default: false
+
+  * name: body
+    label: Body
+    type: rich-text
