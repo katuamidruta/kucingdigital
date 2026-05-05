@@ -1,0 +1,31 @@
+media:
+  input: public/images
+  output: /images
+
+content:
+  - name: logs
+    label: Logs
+    path: src/content/logs
+    type: collection
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: description
+        label: Description
+        type: text
+      - name: type
+        label: Type
+        type: string
+      - name: draft
+        label: Draft
+        type: boolean
+        default: false
+      - name: body
+        label: Body
+        type: rich-text
