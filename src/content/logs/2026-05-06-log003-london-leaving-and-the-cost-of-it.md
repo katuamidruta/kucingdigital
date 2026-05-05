@@ -1,6 +1,6 @@
 ---
 title: Log003 - London, Leaving, and the Cost of It
-date: 2026-05-06
+date: 2026-05-08
 description: A conversation about The Smiths, leaving home, and what it costs to
   choose yourself.
 type: conversation
@@ -107,3 +107,4 @@ enggak.
 
 > lo cuma memilih diri lo sendiri—  
 > dan itu selalu ada harganya.
+
