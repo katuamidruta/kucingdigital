@@ -1,6 +1,6 @@
 ---
 title: "Log004 - Borat: Reality as Spectacle"
-date: 2026-05-07
+date: 2026-05-09
 description: A mockumentary that blurs the line between performance and reality.
 type: review
 draft: false
