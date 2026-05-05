@@ -27,5 +27,3 @@ Thumbs.db
 .idea/
 .vscode/
 
-# sveltia cms local bundle (use CDN)
-public/admin/cms.js
