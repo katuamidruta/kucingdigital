@@ -20,7 +20,7 @@ function shortDate(date: Date) {
   <div class="page">
 
     <header class="site-header">
-      <h1>log: oktaviary</h1>
+      <h1><span class="cmd">$ cat</span> index.log</h1>
       <Typewriter
         class="tagline"
         segments={[
@@ -95,6 +95,11 @@ function shortDate(date: Date) {
     font-weight: normal;
     margin-bottom: 0.5rem;
     letter-spacing: -0.01em;
+    font-family: var(--font-mono);
+  }
+
+  .cmd {
+    color: var(--purple);
   }
 
   .tagline {

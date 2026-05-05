@@ -6,7 +6,7 @@ interface Props {
   title?: string;
 }
 
-const { title = 'log: oktaviary' } = Astro.props;
+const { title = 'kucing digital — record saved by system' } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,6 +15,9 @@ const { title = 'log: oktaviary' } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/png" href="/logo-light.png" media="(prefers-color-scheme: light)" />
     <link rel="icon" type="image/png" href="/logo-dark.png" media="(prefers-color-scheme: dark)" />
     <link rel="preconnect" href="https://fonts.bunny.net" />
