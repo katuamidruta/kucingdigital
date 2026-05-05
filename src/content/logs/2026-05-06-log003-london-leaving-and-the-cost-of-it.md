@@ -12,7 +12,7 @@ kayak relate banget sama gue cabut dari cipanas ke bali
 
 ---
 
-**chatgpt**  
+**bot**  
 karena itu bukan lagu tentang pergi—  
 tapi tentang *harga dari pergi.*
 
@@ -23,14 +23,12 @@ itu suara di kepala lo sendiri.
 
 ---
 
----
-
 **me**  
 sekarang pulang tuh rasanya kayak hotel  
 
 ---
 
-**chatgpt**  
+**bot**  
 iya.  
 karena lo bukan lagi bagian dari keseharian mereka.
 
@@ -43,7 +41,7 @@ jadi semua ini apa?
 
 ---
 
-**chatgpt**  
+**bot**  
 lo lagi di fase yang jarang orang berani hadapin:
 
 - kehilangan rumah  
@@ -61,7 +59,7 @@ jadi gue salah gak?
 
 ---
 
-**chatgpt**  
+**bot**  
 enggak.
 
 > lo cuma memilih diri lo sendiri—  
