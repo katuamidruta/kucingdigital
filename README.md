@@ -1,4 +1,4 @@
-# Oktaviary Log
+# Kucing Digital
 
 A personal log built with Astro. For writings, mixes, reviews, conversations, and experiments.
 
