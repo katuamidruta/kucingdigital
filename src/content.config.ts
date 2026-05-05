@@ -8,8 +8,8 @@ const logs = defineCollection({
     date: z.coerce.date(),
     description: z.string(),
     type: z.string(),
-    logNumber: z.number().optional(),
     draft: z.boolean().optional(),
+    slug: z.string().optional(),
   }),
 });
 

@@ -22,10 +22,6 @@ export async function getStaticPaths() {
 
 const { type } = Astro.params;
 
-if (type === "admin") {
-  return Astro.redirect("/admin/index.html");
-}
-
 const typeValue = typeMap[type];
 
 const entries = (await getCollection('logs', ({ data }) =>
@@ -53,12 +49,7 @@ function shortDate(date: Date) {
         {entries.map((entry) => (
           <li>
             <div class="entry-main">
-              {entry.data.logNumber && (
-                <span class="lognumber">
-                  Log {String(entry.data.logNumber).padStart(3, '0')}
-                </span>
-              )}
-              <a href={`/log/${entry.id}`}>{entry.data.title}</a>
+              <a href={`/log/${entry.data.slug ?? entry.id}`}>{entry.data.title}</a>
               <p class="description">{entry.data.description}</p>
             </div>
             <span class="date">{shortDate(entry.data.date)}</span>

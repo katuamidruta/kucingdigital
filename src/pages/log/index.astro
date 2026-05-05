@@ -5,6 +5,8 @@ import { getCollection } from 'astro:content';
 const logs = (await getCollection('logs', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
+const types = ['writing', 'mix', 'review', 'conversation', 'experiment'];
+
 function formatDate(date: Date) {
   return date.toLocaleDateString('en-GB', {
     day: 'numeric',
@@ -24,10 +26,15 @@ function formatDate(date: Date) {
       <a href="/">[ home ]</a>
     </nav>
 
+    <nav class="type-filter">
+      <a href="/log">all</a>
+      {types.map(t => <a href={`/log?type=${t}`}>{t}</a>)}
+    </nav>
+
     <ul>
       {logs.map((log) => (
-        <li>
-          <a href={`/log/${log.id}`}>
+        <li data-type={log.data.type}>
+          <a href={`/log/${log.data.slug ?? log.id}`}>
             <span class="title">{log.data.title}</span>
             <span class="meta">{formatDate(log.data.date)} · {log.data.type}</span>
           </a>
@@ -36,6 +43,20 @@ function formatDate(date: Date) {
     </ul>
   </main>
 </BaseLayout>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const active = params.get('type');
+
+  document.querySelectorAll<HTMLElement>('[data-type]').forEach(el => {
+    el.hidden = !!active && el.dataset.type !== active;
+  });
+
+  document.querySelectorAll<HTMLAnchorElement>('.type-filter a').forEach(a => {
+    const t = new URL(a.href).searchParams.get('type');
+    if (t === active || (!t && !active)) a.classList.add('active');
+  });
+</script>
 
 <style>
   main {
@@ -69,6 +90,28 @@ function formatDate(date: Date) {
   h1 {
     font-size: 1.5rem;
     font-weight: normal;
+  }
+
+  .type-filter {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .type-filter a {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .type-filter a:hover,
+  .type-filter a.active {
+    color: var(--purple);
   }
 
   ul {

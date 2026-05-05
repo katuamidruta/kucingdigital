@@ -3,7 +3,8 @@ title: "On Making Things That Don't Ship"
 date: 2026-05-05
 description: "A conversation with a friend about creative work that has no audience."
 type: conversation
-logNumber: 4
+draft: false
+slug: "on-making-things-that-dont-ship"
 ---
 
 We talked for about two hours. This is a loose reconstruction, not a transcript. Some parts have been compressed. Nothing has been invented.

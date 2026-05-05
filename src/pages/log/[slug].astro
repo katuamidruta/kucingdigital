@@ -8,18 +8,16 @@ export async function getStaticPaths() {
 
   return logs.map((entry, i) => {
     const next = logs[i + 1] ?? null;
+    const slug = entry.data.slug ?? entry.id;
+    const nextSlug = next ? (next.data.slug ?? next.id) : null;
     return {
-      params: { slug: entry.id },
-      props: {
-        entry,
-        nextId: next?.id ?? null,
-        nextTitle: next?.data.title ?? null,
-      },
+      params: { slug },
+      props: { entry, nextSlug },
     };
   });
 }
 
-const { entry, nextId, nextTitle } = Astro.props;
+const { entry, nextSlug } = Astro.props;
 const { Content } = await render(entry);
 ---
 
@@ -27,9 +25,7 @@ const { Content } = await render(entry);
   title={entry.data.title}
   date={entry.data.date}
   type={entry.data.type}
-  logNumber={entry.data.logNumber}
-  nextId={nextId}
-  nextTitle={nextTitle}
+  nextSlug={nextSlug}
 >
   <Content />
 </LogLayout>

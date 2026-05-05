@@ -36,7 +36,7 @@ function shortDate(date: Date) {
       <ul class="log-list">
         {latest.map((entry) => (
           <li>
-            <a href={`/log/${entry.id}`}>
+            <a href={`/log/${entry.data.slug ?? entry.id}`}>
               {entry.data.title}
               <span class="row-meta">{entry.data.type} · {shortDate(entry.data.date)}</span>
             </a>
@@ -72,7 +72,7 @@ function shortDate(date: Date) {
         <ul class="log-list">
           {conversations.map((entry) => (
             <li>
-              <a href={`/log/${entry.id}`}>
+              <a href={`/log/${entry.data.slug ?? entry.id}`}>
                 {entry.data.title}
                 <span class="row-meta">{shortDate(entry.data.date)}</span>
               </a>

@@ -5,28 +5,21 @@ interface Props {
   title: string;
   date: Date;
   type: string;
-  logNumber?: number;
-  nextId?: string | null;
-  nextTitle?: string | null;
+  nextSlug?: string | null;
 }
 
-const { title, date, type, logNumber, nextId, nextTitle } = Astro.props;
+const { title, date, type, nextSlug } = Astro.props;
 
 const dateFormatted = date.toLocaleDateString('en-GB', {
   day: 'numeric',
   month: 'long',
   year: 'numeric',
 });
-
-const logLabel = logNumber !== undefined
-  ? `Log ${String(logNumber).padStart(3, '0')}`
-  : null;
 ---
 
 <BaseLayout title={`${title} — log: oktaviary`}>
   <main>
     <header>
-      {logLabel && <p class="lognumber">{logLabel}</p>}
       <h1>{title}</h1>
       <p class="meta">{dateFormatted} · {type}</p>
     </header>
@@ -39,7 +32,7 @@ const logLabel = logNumber !== undefined
       <nav class="back-nav">
         <a href="/log">[ back ]</a>
         <a href="/">[ home ]</a>
-        {nextId && <a href={`/log/${nextId}`}>[ next ]</a>}
+        {nextSlug && <a href={`/log/${nextSlug}`}>[ next ]</a>}
       </nav>
     </footer>
   </main>
@@ -53,15 +46,6 @@ const logLabel = logNumber !== undefined
 
   header {
     margin-bottom: 3rem;
-  }
-
-  .lognumber {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
   }
 
   h1 {

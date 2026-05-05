@@ -26,6 +26,9 @@ content:
         label: Draft
         type: boolean
         default: false
+      - name: slug
+        label: Slug
+        type: string
       - name: body
         label: Body
         type: rich-text
