@@ -131,6 +131,37 @@ const dateFormatted = date.toLocaleDateString('en-GB', {
     }
   }
 
+  /* music log entries */
+  article :global(.music-log) {
+    background: #0d0d0d;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #222;
+    margin: 2rem 0;
+  }
+
+  article :global(.music-title) {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+  }
+
+  article :global(.music-caption) {
+    color: #aaa;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    white-space: pre-line;
+  }
+
+  article :global(.music-log iframe) {
+    display: block;
+    border-radius: 8px;
+    margin: 0;
+  }
+
   footer {
     border-top: 1px solid var(--border);
     padding-top: 1.5rem;
