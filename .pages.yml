@@ -8,7 +8,6 @@ content:
   label: Logs
   path: src/content/logs
   type: collection
-
   filename: "{slug}.md"
 
   fields:
@@ -22,7 +21,6 @@ content:
     label: Slug
     type: string
     required: true
-    description: "url-friendly (example: late-may-mix)"
 
   * name: date
     label: Date
