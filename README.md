@@ -7,17 +7,17 @@ A personal log built with Astro. For writings, mixes, reviews, conversations, an
 ## Stack
 
 - **Astro v6** — static site generator with Content Layer API
-- **Decap CMS** — local/git-based content management at `/admin`
+- **Pages CMS** — content management via [pagescms.org](https://pagescms.org), connected to GitHub
 - **IBM Plex Mono** — body and UI font
 - **Press Start 2P** — display font for headings
 - **Dark mode** — class-based (`.dark` on `<html>`), persisted via `localStorage`
+- **Cloudflare Pages** — deployment, auto-deploy on push to `main`
 
 ## Design
 
 - Terminal aesthetic — monospace everything, pixel headings
 - Two-color palette: black/white + `#5170ff` (blue) as accent
 - Dual logos: `logo-light.png` / `logo-dark.png` swap based on theme
-- Inspired by the [Zaggonaut](https://github.com/RATIU5/zaggonaut) Astro theme
 
 ## Content Types
 
@@ -38,20 +38,21 @@ title: "Entry Title"
 date: 2026-05-05
 description: "Short description shown on listing pages."
 type: writing         # writing | mix | review | conversation | experiment
-logNumber: 1          # optional, renders as Log 001
 draft: false          # true = hidden from all pages
+slug: "entry-title"   # controls URL: /log/entry-title
 ```
+
+Filename must match slug: `entry-title.md`
 
 ## Project Structure
 
 ```
 /
+├── .pages.yml               # Pages CMS config
 ├── public/
-│   ├── logo-light.png       # logo for light mode
-│   ├── logo-dark.png        # logo for dark mode
-│   └── admin/
-│       ├── index.html       # Decap CMS
-│       └── config.yml
+│   ├── logo-light.png
+│   ├── logo-dark.png
+│   └── images/              # media uploads via Pages CMS
 ├── src/
 │   ├── components/
 │   │   ├── Header.astro
@@ -66,7 +67,7 @@ draft: false          # true = hidden from all pages
 │   │   ├── index.astro      # homepage
 │   │   ├── about.astro
 │   │   └── log/
-│   │       ├── index.astro  # all entries list
+│   │       ├── index.astro  # all entries list + ?type= filter
 │   │       └── [slug].astro # single entry
 │   └── content.config.ts
 └── package.json
@@ -81,13 +82,13 @@ draft: false          # true = hidden from all pages
 | `npm run build` | Build to `./dist/` |
 | `npm run preview` | Preview production build |
 
-## CMS (Decap)
+## CMS
 
-Run both commands simultaneously to use the local CMS:
+Editing is done via **[pagescms.org](https://pagescms.org)**:
 
-```sh
-npm run dev
-npx decap-server
-```
+1. Sign in with GitHub
+2. Select repo `katuamidruta/kucingdigital`
+3. Edit or create entries under **Logs**
+4. Publish → commits directly to `main` → Cloudflare auto-deploys
 
-Then open `localhost:4321/admin`.
+Type filter available at `/log?type=mix`, `/log?type=writing`, etc.
