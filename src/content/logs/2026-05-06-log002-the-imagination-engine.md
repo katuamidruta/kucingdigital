@@ -1,12 +1,10 @@
 ---
-title: "The Imagination Engine"
-slug: "the-imagination-engine"
+title: Log002 - The Imagination Engine
 date: 2026-05-07
-description: "On Hume, imagination, and the quiet fictions that shape reality."
+description: On Hume, imagination, and the quiet fictions that shape reality.
 type: writing
 draft: false
 ---
-
 ## On Imagination and Fiction
 
 Imagine a great sky falling. Or imagine yourself becoming a cat — no school, no work, just meow meow.
