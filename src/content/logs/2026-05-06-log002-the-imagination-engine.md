@@ -1,25 +1,10 @@
 ---
-title: Log002 - The Imagination Engine
-date: 2026-05-06
-description: Imagine a great sky falling. Or imagine yourself become a cat — no
-  school or work just meow meow.
+title: "The Imagination Engine"
+slug: "the-imagination-engine"
+date: 2026-05-07
+description: "On Hume, imagination, and the quiet fictions that shape reality."
 type: writing
 draft: false
----
----
-
-title: "The Imagination Engine"
-
-slug: "the-imagination-engine"
-
-date: 2026-05-07
-
-description: "On Hume, imagination, and the quiet fictions that shape reality."
-
-category: "writing"
-
-draft: false
-
 ---
 
 ## On Imagination and Fiction
@@ -48,7 +33,7 @@ When you picture a dragon, you combine wings, scales, and power into a single my
 
 When you reflect on who you are, you do not find a fixed essence — only fragments: memories, sensations, emotions.
 
-Even something as simple as a “guitar” is not a singular object in your mind,  
+Even something as simple as a "guitar" is not a singular object in your mind,  
 
 but an abstract construction shaped by experience.
 
