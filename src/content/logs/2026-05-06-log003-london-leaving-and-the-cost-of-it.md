@@ -23,47 +23,6 @@ itu suara di kepala lo sendiri.
 
 ---
 
-**me**  
-“when he goes he really goes”  
-kayaknya mantan gue yang nikah mikir gitu ya  
-
----
-
-**chatgpt**  
-bisa jadi.  
-tapi yang lebih jujur—lo juga lagi mengakui hal yang sama.
-
-> kadang kita gak kehilangan seseorang karena mereka pergi,  
-> tapi karena kita berubah terlalu jauh untuk kembali.
-
----
-
-**me**  
-gue nangis tiap denger lagu ini  
-
----
-
-**chatgpt**  
-karena lo gak cuma denger lagu—  
-lo lagi ketemu bagian diri lo yang belum selesai.
-
-> ini bukan sekadar sedih,  
-> ini kehilangan tanpa bentuk jelas.
-
----
-
-**me**  
-tapi rumah gue di cipanas sekarang udah gak ada… digadaikan  
-
----
-
-**chatgpt**  
-itu bukan nostalgia lagi.  
-itu kehilangan nyata.
-
-> lo bukan cuma ninggalin rumah,  
-> tapi sekarang rumah itu juga ninggalin lo.
-
 ---
 
 **me**  
