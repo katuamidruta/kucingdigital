@@ -1,7 +1,7 @@
 ---
-title: Log001 - Late May Mix
+title: Log001 - Klasse Wrecks Overlords
 date: 2026-02-05
-description: Slow, humid music for the end of the month.
+description: “This Beat” dari Luca Lozano & Mr. Ho (Klasse Wrecks).
 type: mix
 draft: false
 ---
