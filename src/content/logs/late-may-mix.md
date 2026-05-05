@@ -25,9 +25,13 @@ draft: false
 
 <div class="music-log">
   <p class="music-caption">
-    This beat doesn’t ask for attention.  
-    It loops, it persists, and eventually — it owns you.
+    repetitif, hampir gak berubah.
+    anehnya bikin betah.
   </p>
+ <p class="music-caption">
+This Beat Original Mix
+Artists: Luca Lozano, Mr. Ho
+ </p>
 
   <iframe style="border-radius:12px" 
   src="https://open.spotify.com/embed/track/7MYep2B3HCdfCcCTwDKjnw?utm_source=generator" 
