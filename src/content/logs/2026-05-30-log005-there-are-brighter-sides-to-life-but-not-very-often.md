@@ -9,6 +9,8 @@ draft: false
 ---
 **There Are Brighter Sides to Life, But Not Very Often**
 
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6cKrw1ZfA0cLeiIXKBu7NF?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
 Dari lirik lagu *Still Ill* - nya The Smiths ini,  selalu membuat saya berkaca - kaca di bait ini
 
 > *For there are brighter sides to life*  
@@ -113,6 +115,8 @@ Ada kesaksian di sana.
 - Bukan janji
 - Bukan motivasi
 - Bukan optimisme murahan
+
+
 
 Hanya pengakuan dari seseorang yang pernah melihat sesuatu yang lebih terang daripada kesehariannya.
 
