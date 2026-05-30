@@ -9,7 +9,7 @@ draft: false
 ---
 **There Are Brighter Sides to Life, But Not Very Often**
 
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6cKrw1ZfA0cLeiIXKBu7NF?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6cKrw1ZfA0cLeiIXKBu7NF?utm_source=generator&theme=0" width="100%" height="252" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 Dari lirik lagu *Still Ill* - nya The Smiths ini,  selalu membuat saya berkaca - kaca di bait ini
 
@@ -25,12 +25,21 @@ Mungkin sering membayangkan hidup sebagai rangkaian hari yang berjalan lurus.
 
 Bangun, kerja, makan, tidur. Default hidup manusia sekarang yang berulang hingga terasa seperti gurun yang tidak berujung. Namun disela - sela itu, sesuatu terjadi sesuatu seperti
 
-> - Percakapan.
-> - Dengerin music.
-> - Bahkan sebuah perjalanan.
-> - Ada lagi seperti seseorang yang datang pada waktu yang tidak tepat dan semua keputusan kecil itu tampak biasa saja.
+> Percakapan.
+>
+> Menikmati lagu kesukaan.
+>
+> Merencanakan sebuah perjalanan.
+>
+> Bahkan Mungkin 
+>
+> Dipertemukan dengan seseorang yang datang pada waktu yang tidak tepat 
+>
+> Dan
+>
+> Semua keputusan kecil itu tampak biasa saja.
 
-Namun di lain hari tiba-tiba dunia terasa berbeda. Bukan karena permasalahan di hidup ini menghilang. Bukan juga semuanya jadi manis dan sempurna. Melainkan setelah beberapa saat, ketika melihat kemungkinan lain di kehidupan ini, seolah - olah sebuah pintu  terbuka dan memperlihatkan di dunia yang lebih luas daripada di kira.
+Namun di lain hari secara tiba - tiba kita merasa berbeda di dunia ini. Bukan karena permasalahan di hidup ini menghilang atau bukan juga semuanya terasa mulus dan sempurna. Melainkan setelah beberapa saat, ketika melihat kemungkinan lain di kehidupan ini, seolah - olah ada sebuah pintu  terbuka dan memperlihatkan dunia yang lebih luas daripada di kira.
 
 > *Still Ill* tidak mengatakan bahwa hidup itu indah.
 >
