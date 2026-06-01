@@ -1,5 +1,5 @@
 ---
-title: Synthetic Sundown
+title: Log006 - Synthetic Sundown Mix
 date: 2026-06-01
 description: It's closer to the feeling of watching the sun disappear while the
   machines keep humming quietly in the distance.
